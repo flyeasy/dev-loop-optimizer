@@ -1,0 +1,4 @@
+interface:
+  display_name: "Development Loop Optimizer"
+  short_description: "Bound development loops with evidence and safe handoffs"
+  default_prompt: "Use $dev-loop-optimizer to keep this development loop bounded, evidence-driven, and safe to resume."

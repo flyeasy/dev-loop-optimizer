@@ -1,0 +1,8 @@
+.DS_Store
+.env
+.env.*
+*.log
+.local/
+artifacts/
+evidence/
+WORK_LEDGER*.md
