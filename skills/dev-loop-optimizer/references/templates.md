@@ -40,7 +40,7 @@ Use only the minimum template needed. Persist it only when project writes are au
 - Active now and authority source:
 - User-selected next:
 - Needs verification:
-- Candidates requiring user selection:
+- Decision pool requiring user selection:
 - Blocked:
 - Cancelled:
 - Done this round:
@@ -54,16 +54,21 @@ Use only the minimum template needed. Persist it only when project writes are au
 
 Do not promote a candidate merely because `active now` is complete.
 
-## Candidate Finding
+## Decision Candidate
 
 ```markdown
-# Candidate — User Selection Required
+# Decision Candidate — User Selection Required
 
 - Observed behavior:
 - Reproduction or evidence:
 - User impact:
+- Product-direction impact:
 - Confidence:
 - Affected journey:
+- Reversibility or lock-in risk:
+- Decision urgency or deadline:
+- Estimated effort and risk:
+- Recommendation:
 - Why it is not completion-critical:
 - No implementation performed:
 ```
@@ -79,7 +84,7 @@ Do not promote a candidate merely because `active now` is complete.
 - State truthfulness and feedback:
 - Layout or interaction evidence:
 - Completion-critical result:
-- Up to three non-blocking candidates:
+- Up to three new non-blocking candidates added to the decision pool:
 - Probe stop line reached:
 ```
 
@@ -108,7 +113,7 @@ Do not promote a candidate merely because `active now` is complete.
 - Current status:
 - Last verified delta:
 - Remaining completion-critical work:
-- Candidates requiring user selection:
+- Deduplicated decision pool requiring user selection:
 - Sanitized evidence paths:
 - Side effects requiring fresh authority:
 - Safest next read-only action:
@@ -121,7 +126,7 @@ Do not promote a candidate merely because `active now` is complete.
 
 - Does the requested acceptance path pass?
 - Did an in-scope user requirement disappear?
-- Is each remaining issue completion-critical or only a candidate?
+- Is each remaining issue completion-critical, a decision gate before lock-in, or only a decision candidate?
 - Is the evidence current and from the required target?
 - Did the work remain inside the goal lock and resource budget?
 - Final status and stop reason:

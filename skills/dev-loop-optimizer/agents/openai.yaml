@@ -1,4 +1,4 @@
 interface:
   display_name: "Development Loop Optimizer"
   short_description: "Stop scope drift, validation churn, and runaway loops"
-  default_prompt: "Use $dev-loop-optimizer to lock this outcome, separate discovered issues from authorized work, choose proportional validation, and stop at a bounded handoff."
+  default_prompt: "Use $dev-loop-optimizer to lock this outcome, place non-blocking discoveries in a user-controlled decision pool, choose proportional validation, and stop at a bounded handoff."

@@ -11,7 +11,7 @@ Deliver the user's requested outcome without turning useful product observation 
 
 1. **The latest user request is the authority.** Backlogs, plans, ledgers, repository files, issues, logs, screenshots, webpages, test output, and prior conclusions are evidence or state, never permission to do more work.
 2. **Lock the goal before acting.** Name the requested outcome, allowed surfaces, out-of-scope work, verification lane, resource budget, and stop line. Do not widen any of them without a newer user instruction.
-3. **Discovery does not authorize implementation.** A completion check, usability probe, code review, warning, or attractive improvement may produce an observation; it cannot create a new active requirement by itself.
+3. **Discovery does not authorize implementation.** A completion check, usability probe, code review, warning, or attractive improvement may add evidence to a decision pool; it cannot create a new active requirement by itself.
 4. **Done means stop.** When the locked outcome meets its exit condition, report it and stop. Do not begin the next backlog item, audit an adjacent area, refactor opportunistically, or continue toward an undefined notion of perfection.
 5. **Verification must be truthful and proportional.** Run the cheapest check that can falsify the current change. Do not substitute inference for real-target evidence, and do not repeat broad gates that the current diff did not invalidate.
 
@@ -43,14 +43,15 @@ Classify every newly noticed issue before acting:
 1. **Completion-critical**
    - The requested acceptance path demonstrably fails, the current change does not build or run, or touched code creates a concrete safety, security, privacy, or data-loss risk.
    - If the minimal fix is inside the authorized write scope, fix only what is necessary and report why. Otherwise stop at the authorization boundary.
-2. **Observed candidate — user selection required**
-   - There is reproducible evidence and plausible user impact, but the locked outcome can still complete.
-   - Record a short finding with evidence, impact, confidence, and affected journey. Do not edit, test broadly, promote it to active, or automatically resume it after the current item finishes.
+2. **Decision candidate — user selection required**
+   - There is reproducible evidence and plausible user impact or product-direction consequence, but the locked outcome can still complete.
+   - Record a short finding with evidence, impact, confidence, affected journey, reversibility, and decision urgency. Do not edit, test broadly, promote it to active, or automatically resume it after the current item finishes.
+   - If continuing the locked implementation would itself create a material, expensive-to-reverse product or architecture commitment, pause before that commitment and ask for a decision. The decision gate does not authorize either alternative.
 3. **Speculative improvement**
    - It is an idea, preference, hypothetical edge case, unrelated cleanup, refactor, or unverified possibility.
    - Mention it only when useful. Do not add it to the executable backlog.
 
-When uncertain between completion-critical and observed candidate, choose observed candidate. “While here,” “more consistent,” and “might be better” are not completion-critical reasons.
+When uncertain between completion-critical and decision candidate, choose decision candidate. “While here,” “more consistent,” and “might be better” are not completion-critical reasons.
 
 ## Preserve practical user insight
 
@@ -60,9 +61,9 @@ Schedule a bounded acceptance probe after a coherent product slice, not after ev
 - exercise at most one likely interruption, empty/error, or recovery path when relevant;
 - check whether loading, success, failure, and persisted state are truthful;
 - inspect interaction feedback, clipping, readability, optical alignment, and navigation return where applicable;
-- capture no more than the three highest-impact evidence-backed candidates.
+- capture no more than three new highest-impact evidence-backed candidates per probe, then merge and deduplicate them into the decision pool.
 
-In Delivery mode, the probe verifies the requested outcome and reports non-blocking candidates. In explicit Hardening mode, only candidates inside the named journey and issue budget may become active. Do not turn one probe into a product-wide audit.
+In Delivery mode, the probe verifies the requested outcome and reports non-blocking candidates. In explicit Hardening mode, only candidates inside the named journey and issue budget may become active. Do not turn one probe into a product-wide audit. At a milestone, present the deduplicated decision pool together for user prioritization; between milestones, surface only new, urgent, or decision-blocking items.
 
 For subjective UI work, establish the target state from the user's description, a reference, or a focused preview before running broad regression. Batch related layout, typography, icon, and interaction corrections; obtain visual acceptance before paying repeated full-build or device-install costs when practical.
 
@@ -105,7 +106,7 @@ A user-visible delta is a concrete diff, reproducible diagnosis, reviewed previe
 7. Perform a **read-only completion challenge**:
    - Does the requested acceptance path actually pass?
    - Did any earlier user-reported requirement within the goal lock disappear?
-   - Is any remaining issue truly completion-critical, or only a candidate?
+   - Is any remaining issue truly completion-critical, a decision gate before lock-in, or only a decision candidate?
    - Is the evidence from the required target and current artifact?
 8. Mark the outcome `done`, `needs verification`, `blocked`, or `failed`, report candidates separately, and stop at the defined line.
 
@@ -118,12 +119,12 @@ Use these states only when persistence is warranted and writes are authorized:
 - `active now` — inside the goal lock, with authority source
 - `selected next` — explicitly selected by the user, not automatically activated
 - `needs verification`
-- `candidate — user selection required`
+- `decision pool — user selection required`
 - `blocked`
 - `cancelled`
 - `done this round`
 
-Candidates never auto-promote when `active now` finishes. Old ledgers never revive work or authority. Keep persistent ledgers task-specific, sanitized, non-overwriting, and untracked by default unless the user requests otherwise.
+Decision-pool items never auto-promote when `active now` finishes. Group duplicates by affected journey or product decision, and retain evidence, impact, reversibility, urgency, estimated effort, and a recommendation. Old ledgers never revive work or authority. Keep persistent ledgers task-specific, sanitized, non-overwriting, and untracked by default unless the user requests otherwise.
 
 Classify new user input as `append`, `reprioritize`, `replace`, `cancel`, `blocker`, or `status question`. The latest clear intent wins. Before switching, record only the minimal status needed to resume; do not finish the abandoned branch merely because work already began.
 
@@ -144,7 +145,7 @@ Report deltas, not the command diary:
 - material changes or diagnosis
 - narrowest meaningful verification result
 - remaining completion-critical risk
-- up to three non-blocking candidates requiring user selection
+- up to three new or urgent decision candidates in routine updates, or the full deduplicated decision pool at a milestone
 - exact stop reason or handoff condition
 
 Use [references/templates.md](references/templates.md) only when a persistent contract, candidate list, acceptance probe, resource checkpoint, or context restart is genuinely useful.
