@@ -1,90 +1,101 @@
 # Templates
 
-Use only the minimum template required. Persist it only when project writes are authorized and repository conventions allow it. Use a task-specific, non-overwriting path and keep it untracked by default. Remove credentials, account data, personal information, device identifiers, raw environment values, and host-specific absolute paths; prefer sanitized excerpts and repository-relative evidence paths.
+Use only the minimum template needed. Persist it only when project writes are authorized and repository conventions allow it. Use a task-specific, non-overwriting path and keep it untracked by default. Remove credentials, account data, personal information, device identifiers, raw environment values, and host-specific absolute paths; prefer sanitized excerpts and repository-relative evidence paths.
 
-## Contents
-
-- [Task Contract](#task-contract)
-- [Iteration Summary](#iteration-summary)
-- [Backlog Ledger](#backlog-ledger)
-- [Completion Challenge](#completion-challenge)
-- [Verification Note](#verification-note)
-- [Context-Restart Handoff](#context-restart-handoff)
-- [UI Verification](#ui-verification)
-- [Retry Cutoff](#retry-cutoff)
-
-## Task Contract
+## Goal Lock
 
 ```markdown
-# Task Contract
+# Goal Lock
 
-- Target:
-- Current request and authority:
+- Requested outcome:
+- Acceptance signal:
+- Allowed surface:
 - Authorized side effects:
 - Approval gates:
 - Out of scope:
-- Expected signal:
-- Verification method:
-- Exit condition:
+- Verification lane and gates:
+- Resource budget:
+- Stop line:
 ```
 
-## Iteration Summary
+## Iteration Delta
 
 ```markdown
-# Iteration Summary
+# Iteration Delta
 
-- Target:
-- Files changed:
-- Validation:
-- Result:
-- Backlog touched:
-- Status changes:
-- Remaining risk:
-- Next step:
+- Hypothesis:
+- Coherent batch:
+- Files or surfaces changed:
+- Invalidated gate:
+- Validation result:
+- User-visible delta:
+- Status: done | needs verification | blocked | failed
 ```
 
-## Backlog Ledger
+## Bounded Work Ledger
 
 ```markdown
-# Work Ledger
+# Bounded Work Ledger
 
-- Active:
+- Active now and authority source:
+- User-selected next:
 - Needs verification:
-- Queued:
+- Candidates requiring user selection:
 - Blocked:
 - Cancelled:
 - Done this round:
 
-## Scope notes
-- Current request:
-- Item sources:
-- Reprioritization reason:
-- Side effects requiring fresh approval:
+## Scope lock
+- Latest request:
+- Allowed surface:
+- Stop line:
+- Side effects requiring fresh authority:
 ```
 
-## Completion Challenge
+Do not promote a candidate merely because `active now` is complete.
+
+## Candidate Finding
 
 ```markdown
-# Completion Challenge
+# Candidate — User Selection Required
 
-- What evidence could still prove this unfinished?
-- Which earlier user-reported items remain open or cancelled?
-- Was the result verified on the real target path?
-- Did the work stay within the current request?
-- Should this be `done` or only `needs verification`?
+- Observed behavior:
+- Reproduction or evidence:
+- User impact:
+- Confidence:
+- Affected journey:
+- Why it is not completion-critical:
+- No implementation performed:
 ```
 
-## Verification Note
+## Acceptance Probe
 
 ```markdown
-# Verification Note
+# Acceptance Probe
 
-- Item:
-- Expected result:
-- Verification method:
-- Sanitized repository-relative evidence path:
-- Actual result:
-- Remaining risk:
+- Locked user journey and target:
+- Primary task result:
+- One interruption, empty/error, or recovery path checked:
+- State truthfulness and feedback:
+- Layout or interaction evidence:
+- Completion-critical result:
+- Up to three non-blocking candidates:
+- Probe stop line reached:
+```
+
+## Resource Checkpoint
+
+```markdown
+# Resource Checkpoint
+
+- Locked outcome:
+- Elapsed time or tool-call proxy:
+- User-visible delta so far:
+- Hypotheses attempted:
+- New evidence gained:
+- Why the current pattern is no longer efficient:
+- Narrower or alternative branch:
+- Work stopped pending replanning or user decision:
 ```
 
 ## Context-Restart Handoff
@@ -92,37 +103,26 @@ Use only the minimum template required. Persist it only when project writes are 
 ```markdown
 # Context-Restart Handoff
 
-- Latest user request to reconcile:
-- Active item:
-- Last verified result:
-- Open or cancelled backlog:
+- Latest user request:
+- Goal lock and stop line:
+- Current status:
+- Last verified delta:
+- Remaining completion-critical work:
+- Candidates requiring user selection:
 - Sanitized evidence paths:
-- Side effects requiring re-authorization:
-- Next best read-only action:
+- Side effects requiring fresh authority:
+- Safest next read-only action:
 ```
 
-## UI Verification
+## Read-only Completion Challenge
 
 ```markdown
-# UI Check
+# Completion Challenge
 
-- Target form factor:
-- Screen or flow:
-- Verified states:
-- Layout, icon, or interaction issues:
-- Sanitization performed:
-- Remaining risk:
-```
-
-## Retry Cutoff
-
-```markdown
-# Retry Cutoff
-
-- Problem:
-- Attempts tried:
-- New evidence gained:
-- Why this path is stalled:
-- Budget or approval gate reached:
-- Best next branch:
+- Does the requested acceptance path pass?
+- Did an in-scope user requirement disappear?
+- Is each remaining issue completion-critical or only a candidate?
+- Is the evidence current and from the required target?
+- Did the work remain inside the goal lock and resource budget?
+- Final status and stop reason:
 ```

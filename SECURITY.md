@@ -20,6 +20,6 @@ Include only the minimum safe information needed to reproduce the behavior:
 
 ## Security properties and limits
 
-The published Skill is prompt-only and ships no executable scripts, dependencies, binaries, hooks, network calls, or credentials. Its safety rules cover current-scope reconciliation, untrusted repository artifacts, script inspection, read-only boundaries, evidence sanitization, retry limits, and verification truthfulness.
+The published Skill is prompt-only and ships no executable scripts, dependencies, binaries, hooks, network calls, or credentials. Its safety rules cover current-scope reconciliation, non-authorizing issue discovery, untrusted repository artifacts, script inspection, read-only boundaries, evidence sanitization, resource fuses, retry limits, and verification truthfulness.
 
 These controls reduce risk but cannot guarantee the behavior of every model, host, project script, external tool, or repository. Review the exact diff and the surrounding task authority before enabling side effects.

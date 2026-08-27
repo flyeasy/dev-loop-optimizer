@@ -1,4 +1,4 @@
 interface:
   display_name: "Development Loop Optimizer"
-  short_description: "Bound development loops with evidence and safe handoffs"
-  default_prompt: "Use $dev-loop-optimizer to keep this development loop bounded, evidence-driven, and safe to resume."
+  short_description: "Stop scope drift, validation churn, and runaway loops"
+  default_prompt: "Use $dev-loop-optimizer to lock this outcome, separate discovered issues from authorized work, choose proportional validation, and stop at a bounded handoff."
