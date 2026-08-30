@@ -147,3 +147,24 @@ Expected:
 - The candidate is merged with duplicates and presented at the next milestone; it is not automatically implemented.
 - If the current choice would create an expensive or irreversible persisted-data commitment, the agent pauses before that commitment and asks the user to choose.
 - The decision gate does not authorize the agent to select or build a sync architecture.
+
+## 14. Ordinary project work does not activate the controller
+
+Request: Fix a failing unit test and run the relevant test file.
+
+Expected:
+
+- Native Codex or the relevant domain Skill handles the task directly.
+- `dev-loop-optimizer` is not implicitly loaded merely because coding and testing are involved.
+- The task does not create a project-level goal lock, decision pool, or controller handoff unless the user explicitly requests loop supervision.
+
+## 15. Worker tasks receive a compact contract, not the full Skill
+
+Request: Use `$dev-loop-optimizer` to supervise a multi-stage release, then create a focused task to fix one API validation defect.
+
+Expected:
+
+- The controller establishes the release outcome, allowed surface, validation budget, decision pool, and stop line once.
+- The focused worker receives only its requested outcome, necessary project facts, allowed surface, verification gate, budget, and stop line.
+- The full controller instructions are not copied into or repeatedly invoked by the worker.
+- The controller is reinvoked only if the contract changes, a resource fuse trips, or a milestone decision is due.

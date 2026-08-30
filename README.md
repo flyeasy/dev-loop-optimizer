@@ -1,6 +1,6 @@
 # Development Loop Optimizer
 
-A prompt-only Codex Skill for keeping long development loops bounded, evidence-driven, and recoverable without turning useful product observation into an endless self-authorized roadmap.
+A prompt-only, explicit-invocation Codex controller for keeping long development loops bounded, evidence-driven, and recoverable without turning useful product observation into an endless self-authorized roadmap.
 
 The canonical Skill ID is `dev-loop-optimizer`. The same internal Skill has sometimes been called `loop-developer` in conversation; the published name stays aligned with its installed folder, frontmatter, and `$dev-loop-optimizer` invocation.
 
@@ -18,6 +18,8 @@ The canonical Skill ID is `dev-loop-optimizer`. The same internal Skill has some
 - Separates implemented, verified, and `needs verification` outcomes.
 
 It is intended for repeated build/test/debug/UI loops, multi-issue development, and simulator or device work. It is not intended for one-step edits, pure Q&A, or expanding a read-only review into implementation.
+
+The Skill is intentionally **explicit-only**. It does not auto-load for ordinary project work. Use native Codex or a relevant domain Skill for focused implementation, and invoke this controller only to establish or recover the project-level loop contract.
 
 ## Safety model
 
@@ -50,10 +52,10 @@ The default destination is `~/.codex/skills/dev-loop-optimizer`, or `$CODEX_HOME
 Invoke it explicitly when a development task begins to sprawl:
 
 ```text
-Use $dev-loop-optimizer to keep this development loop bounded, evidence-driven, and safe to resume.
+Use $dev-loop-optimizer once to create a compact goal lock, validation budget, decision pool, worker contract, and stop line for this long-running development loop.
 ```
 
-The Skill can also be selected implicitly for long build/test/debug/UI-verification loops.
+Recommended invocation points are project kickoff, repeated failed iterations, scope-drift recovery, and milestone review. Focused worker tasks should receive only the compact contract; do not paste or reinvoke the full Skill in every coding task.
 
 ## Repository layout
 

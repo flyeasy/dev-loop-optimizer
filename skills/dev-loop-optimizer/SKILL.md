@@ -1,11 +1,19 @@
 ---
 name: dev-loop-optimizer
-description: Keep long-running development loops bounded by locking the requested outcome, separating issue discovery from authorization, batching coherent edits, selecting only invalidated checks, and enforcing resource stop conditions. Use for repeated build/test/debug/UI loops, simulator or device runs, multi-issue coding, or explicit requests for a token-efficient and recoverable development process; do not use for one-step edits, pure Q&A, or ordinary read-only review unless loop management is requested.
+description: Explicitly invoked project-level controller for a long-running development loop. Locks one outcome, separates discovery from authorization, sets proportional validation and resource stop conditions, and produces compact worker contracts and decision handoffs. Use only when the user invokes $dev-loop-optimizer or explicitly requests loop supervision; ordinary implementation should use native Codex or the relevant domain skill.
 ---
 
 # Development Loop Optimizer
 
 Deliver the user's requested outcome without turning useful product observation into an endless self-authorized roadmap.
+
+## Explicit-only controller role
+
+Use this Skill only when the user explicitly invokes `$dev-loop-optimizer` or asks for development-loop supervision. Do not activate it merely because a project is complex, uses tests or devices, spans several files, or may take time.
+
+Use it at project kickoff, after repeated failed iterations, when scope has drifted, or at a milestone decision. Ordinary coding, bug fixes, reviews, builds, and tests should proceed with native Codex or the relevant domain Skill without loading this controller.
+
+The controller should produce or refresh a compact goal lock, validation budget, decision pool, and stop line. When implementation is delegated or moved into a focused worker task, pass only that short contract and the necessary project facts. Do not inject, quote, or require the full controller Skill in every worker task. Reinvoke the controller only when the contract changes, a fuse trips, or a milestone needs review.
 
 ## Non-negotiable invariants
 
